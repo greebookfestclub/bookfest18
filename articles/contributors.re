@@ -1,4 +1,6 @@
 = 著者紹介
 
-==== 第1章 ひつじ / @mhidaka
-ひつじだよ〜
+==== 樋口雅拓 / @<href>{https://twitter.com/mahiguch1,@mahiguch1} (@<chap>{higuchi})
+
+グリーグループのgreex株式会社で、ソフトウェア開発に従事。
+好きなサウナ施設は、鶯谷のサウナセンター。
