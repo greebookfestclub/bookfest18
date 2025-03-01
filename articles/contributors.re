@@ -1,7 +1,8 @@
 = 著者紹介
 
-==== 第1章 ひつじ / @mhidaka
-ひつじだよ〜
+==== 樋口雅拓 / @<href>{https://twitter.com/mahiguch1,@mahiguch1} (@<chap>{higuchi})
+グリーエックス株式会社で、ソフトウェア開発に従事。
+好きなサウナ施設は、鶯谷のサウナセンター。
 
 ==== 遠藤辰弥 / @<href>{https://twitter.com/tattyamm,@tattyamm} (@<chap>{endo})
 スマホ向けアプリ共通システムのサーバーサイドを担当。
