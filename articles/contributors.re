@@ -24,3 +24,6 @@
 アローラ！インフラエンジニアです。
 今はマネージャー業務も頑張っています。
 バーチャルに生きていたいです。
+
+==== 佐島豊 / @<href>{https://x.com/yutaka_sashima,@yutaka_sashima} (@<chap>{sashima})
+主に技術広報などをやってます。
