@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.snippetSuggestions": "inline",
+    "editor.renderWhitespace": "boundary",
+    "files.associations": {
+      "*.re": "review"
+    },
+    "[review]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.wordWrap": "on"
+    }
+  },
+  "extensions": {
+    "recommendations": ["atsushieno.language-review"]
+  }
+}
