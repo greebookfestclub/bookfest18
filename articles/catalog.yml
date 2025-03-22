@@ -3,7 +3,15 @@ PREDEF:
 
 CHAPS:
   - article.re
+  - higuchi.re
   - endo.re
+  - okazaki.re
+  - ken11.re
+  - takatsu.re
+  - aoki.re
+  - ganyariya.re
+  - sashima.re
+  - saruta.re
 
 APPENDIX:
 
