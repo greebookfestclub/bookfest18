@@ -17,15 +17,15 @@ review_version: 5.0
 # inherit: ["A.yml", "B.yml"]
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
-bookname: ReVIEW-Template
+bookname: GREE-BookFest18
 # 記述言語。省略した場合はja
 language: ja
 
 # 書名
-booktitle: {name: "Re:VIEWテンプレート", file-as: "reviewテンプレート"}
+booktitle: {name: "グリー技術書典部誌 2025年春号", file-as: "グリーギジュツショテンブシ 2025ネンハルゴウ"}
 
 # 著者名。「, 」で区切って複数指定できる
-aut: [{name: "TechBooster編", file-as: "techboosterヘン"}]
+aut: [{name: "グリー技術書典部", file-as: "グリーギジュツショテンブ"}]
 
 # 以下はオプション
 # 以下はオプション(autと同じように配列書式で複数指定可能)。
@@ -47,7 +47,7 @@ aut: [{name: "TechBooster編", file-as: "techboosterヘン"}]
 # a-csl, csl: 監修者
 # a-dsr, dsr: デザイナ
 # a-edt, edt: 編集者
-edt: ["mhidaka"]
+edt: ["グリー技術書典部"]
 # a-ill, ill: イラストレータ
 # a-lyr, lyr: 歌詞作成者
 # a-mdc, mdc: メタデータセットの一次的責任者
@@ -56,7 +56,7 @@ edt: ["mhidaka"]
 # a-oth, oth: その他
 # a-pht, pht: 撮影責任者
 # a-pbl, pbl: 出版社（発行所）
-pbl: TechBooster
+# pbl: TechBooster
 # a-prt, prt: 印刷所
 # prt: TechBooster
 # a-red, red: 項目の枠組起草者
@@ -69,15 +69,15 @@ pbl: TechBooster
 # contact: 連絡先
 
 # 刊行日(省略した場合は実行時の日付)
-date: 2022-12-31
+date: 2025-06-01
 # 発行年月。YYYY-MM-DD形式による配列指定。省略した場合はdateを使用する
 # 複数指定する場合は次のように記述する
 # [["初版第1刷の日付", "初版第2刷の日付"], ["第2版第1刷の日付"]]
 # 日付の後ろを空白文字で区切り、任意の文字列を置くことも可能。
-history: [["2022-12-31 コミックマーケット101版 v1.0.0"]]
+history: [["2025-06-01 技術書典18版 v1.0.0"]]
 # 権利表記(配列で複数指定可)
 # rights: (C) 2016 Re:VIEW Developers
-rights: (C) 2017-2022 TechBooster
+rights: 2019-2025 グリー技術書典部
 # description: 説明
 # subject: 短い説明用タグ(配列で複数指定可)
 # type: 書籍のカテゴリーなど(配列で複数指定可)
@@ -90,7 +90,7 @@ rights: (C) 2017-2022 TechBooster
 debug: null
 
 # 固有IDに使用するドメイン。省略した場合は時刻に基づくランダムUUIDが入る
-urnid: urn:uuid:https://github.com/TechBooster/ReVIEW-Template
+urnid: urn:uuid:https://github.com/greebookfestclub/bookfest18
 #
 # ISBN。省略した場合はurnidが入る
 # isbn: null
@@ -267,19 +267,6 @@ direction: "ltr"
 # 追加する<meta>要素のプロパティとその値
 # opf_meta: {"ebpaj:guide-version": "1.1.3"}
 
-# Playwrightの利用オプション
-playwright_options:
-  # playwrightコマンドのパス
-  # playwright_path: "./node_modules/.bin/playwright"
-  # DockerのRe:VIEWではplaywrightをプリインストールしているためデフォルトを/usr/binのものに変更
-  playwright_path: "/usr/bin/playwright"
-  # playwright-runnerの切り取りを使う。pdfcropを使う場合はfalseにする
-  # selfcrop: true
-  # pdfcropコマンドのパス
-  # pdfcrop_path: "pdfcrop"
-  # pdftocairoコマンドのパス
-  # pdftocairo_path: "pdftocairo"
-
 # 以下のパラメータを有効にするときには、
 # epubmaker:
 #    パラメータ: 値
@@ -353,7 +340,7 @@ epubmaker:
   # zip_addpath: null
   #
   # EPUBで表紙をコンテンツに含めるか。デフォルトでは作成されない。yesにするとiBooks等でも最初に表紙が表示されるようになる
-  # cover_linear: null
+  cover_linear: yes
   #
   # @<href>タグでの外部リンクを禁止し、地の文にする(falseで禁止する)
   # externallink: true
@@ -405,7 +392,7 @@ pdfmaker:
   # 仕上がりサイズ+塗り足し3mmありのPDFまたはIllustratorファイル（PDF互換オプション付き）を推奨。
   # 拡縮はされず「そのまま」貼り付けられる
   # 原寸画像を用意できないときには、「,cover_fit_page=true」をtexdocumentclassパラメータの2つめの値に追加すると、仕上がりサイズにリサイズして貼り付ける
-  # coverimage: cover-a5.ai
+  # coverimage: cover-b5.psd
   #
   # TeXコンパイル前に実行するプログラム。変換後のTeXソースを調整したいときに使用する。
   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ
@@ -487,4 +474,4 @@ techbooster:
   # texdocumentclassでcover_fit_page=trueを付けるのと同じ
   # cover_fit_page: true
   # 裏表紙画像指定。画像はimages/から探索される
-  # backcoverimage: backcover.jpg
+  # backcoverimage: backcover.png
