@@ -1,32 +1,41 @@
-= Android向けのGoogle Play Integrity APIは活用できるか？
+= DeviceCheck(iOS)やPlay Integrity API(Android)は活用できるか？
 
 == この章の概要
-スマホアプリ向けプラットフォームには、真正な端末やアプリかどうかを判定するAPIが用意されている、このAPIを活用できるかを考える。
+スマホアプリ向けプラットフォームには、真正な端末やアプリかどうかを判定するAPIが用意されているケースがあります、このAPIを活用するにはどうすれば良いか考えていきましょう。
 
-== Play Integrity APIとは
-スマホ向けアプリにおいて、改造されたアプリや不正な方法でインストールされたアプリからのアクセスを検知したいケースがあると思います。Apple, Googleなどではそれを検知する方法があるため、今回はそこについて見ていきます。
+== できること
 
-iOS向けのDeviceCheckのApp Attest API
-https://developer.apple.com/documentation/devicecheck
-Android向けのPlay Integrity API
-https://developer.android.com/google/play/integrity/overview?hl=ja
+=== iOS,Androidで似ている部分
 
-これらのAPIではアプリが正当なものかどうかを判定してくれます、
+スマホ向けアプリにおいて、改造されたアプリや不正な方法でインストールされたアプリからのアクセスを検知したいケースがあると思います。Apple, Googleなどではそれを検知する方法があるため、今回はそこについて見ていきます。Apple, Googleにはそれぞれ以下の機能が用意されています。
+
+ * iOS向けのDeviceCheckのApp Attest API@<fn>{endofn01}
+ * Android向けのPlay Integrity API@<fn>{endofn02}
+
+//footnote[endofn01][https://developer.apple.com/documentation/devicecheck]
+//footnote[endofn02][https://developer.android.com/google/play/integrity/overview?hl=ja]
+
+これらのAPIではアプリが正当なものかどうかを判定してくれます、例えばPlay Integrity APIの場合はこのような内容です。
 
  * 正規のアプリのバイナリかどうか、改造されていないか
  * Google Playでアプリをインストールしているか
  * 真正のAndroidデバイスかどうか
 
-== DeviceCheckの2bit値の活用
-保存できるのは2bit値なのでid等は保存できないように設計されています。またこの値はアプリを削除しても、デバイスをリセットしても消えないため、活用方法としては例えば以下のようなことが考えられます。
+=== iOS DeviceCheckの2bit値の活用
 
+iOSにあるDeviceCheckでは端末単位で2bitまでの値と時刻を保存できます。保存できるのは2bit値なのでid等は保存できないように設計されています。またこの値はアプリを削除しても、デバイスをリセットしても消えないため、活用方法としては例えば以下のようなことが考えられます。
+
+ * このデバイスでは過去にインストールしたことがあるか？
  * このデバイスでは過去に不正判定を行ったか？
- * このデバイスでは過去にフリートライアルを利用したか？
 
-といったことを保存してくことができます。
-ただ、この値はアプリ単位ではなくアプリ提供者単位のはずなので、フリートライアル有無の保存はよく考えてから使った方が良いかなと思います。
+== 活用できるケース,できないケース
 
-== 活用できないケース
+=== 活用できるケース
+
+TODO
+
+=== 活用できないケース
+
 こういった判定APIを活用できないケースにはどのようなものがあるでしょうか。
 これらのAPIの判定結果自体を誤魔化すような不正は一般には困難なので一旦おいておくとして、最も考慮すべきはApple,Google以外の不正判定の仕組みが無いプラットフォームを使う場合です。
 何かの方法で不正なアクセスをしてくるユーザーは、Apple,Googleのバイナリの改造をせずとも不正判定の仕組みが無いプラットフォームを使うようにすれば不正判定を回避できます。改造バイナリを使うことが目的ではない場合、これを防ぐことができません。
