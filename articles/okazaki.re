@@ -359,7 +359,6 @@ export async function GET() {
         <description>${siteConfig.description}</description>
         <language>ja</language>
         <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-        <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
         ${posts
           .map((post) => {
             return `
@@ -368,7 +367,6 @@ export async function GET() {
                 <link>${baseUrl}/blog/${post.slug}</link>
                 <guid isPermaLink="true">${baseUrl}/blog/${post.slug}</guid>
                 <pubDate>${new Date(post.metadata.date).toUTCString()}</pubDate>
-                <description><![CDATA[${post.metadata.description || ''}]]></description>
                 ${
                   post.metadata.tags
                     ? post.metadata.tags
@@ -550,7 +548,7 @@ colors: {
 //}
 
 背景色・前景色だけでなく、ボタンやリンク、アラート表示などに使う色も統一することで、全体に一貫性のあるデザインを実現しています。
-なお、Tailwind v4 からは `oklch()` による色指定が公式でも推奨されており、よりアクセシビリティを意識したテーマ設計が可能です。
+なお、Tailwind v4 からは @<code>{oklch()} による色指定が公式でも推奨されており、よりアクセシビリティを意識したテーマ設計が可能です。
 
 === Tailwind Typography vs mdx-components
 
