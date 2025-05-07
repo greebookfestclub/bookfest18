@@ -2,11 +2,10 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - article.re
+  - ken11.re
   - higuchi.re
   - endo.re
   - okazaki.re
-  - ken11.re
   - takatsu.re
   - aoki.re
   - ganyariya.re
@@ -14,6 +13,7 @@ CHAPS:
   - saruta.re
 
 APPENDIX:
+  - appendix.re
 
 POSTDEF:
   - contributors.re
