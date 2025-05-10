@@ -1,0 +1,77 @@
+@startuml
+!define RECTANGLE class
+
+skinparam backgroundColor transparent
+skinparam handwritten false
+skinparam defaultFontName "Hiragino Sans"
+skinparam defaultFontSize 14
+skinparam roundCorner 15
+skinparam shadowing false
+
+skinparam note {
+  BackgroundColor #FFFFDD
+  BorderColor #999999
+}
+
+skinparam rectangle {
+  BackgroundColor white
+  BorderColor #333333
+  FontStyle bold
+}
+
+skinparam arrow {
+  Color #666666
+  FontColor #666666
+}
+
+rectangle "ユーザー" as User #DDDDFF
+
+rectangle "root_agent" as RootAgent #D5E8D4 {
+  rectangle "<b>主要機能:</b>\n・ユーザー入力の解析\n・適切なエージェント選択\n・対話全体の調整" as RootFunctions #D5E8D4
+}
+
+rectangle "inspiration_agent" as InspirationAgent #FFE6CC {
+  rectangle "<b>place_agent</b>\n好みに合った\nレストラン提案" as PlaceAgent
+  rectangle "<b>poi_agent</b>\nエリアベースの\n飲食スポット提案" as POIAgent
+}
+
+rectangle "planning_agent" as PlanningAgent #DAE8FC {
+  rectangle "<b>menu_agent</b>\nコース選択" as MenuAgent
+  rectangle "<b>seat_agent</b>\n空席確認" as SeatAgent
+}
+
+rectangle "booking_agent" as BookingAgent #F8CECC {
+  rectangle "<b>create_reservation</b>\n予約作成" as CreateReservation
+  rectangle "<b>payment_choice</b>\n支払い方法選択" as PaymentChoice
+  rectangle "<b>process_payment</b>\n支払い処理" as ProcessPayment
+}
+
+User <--> RootAgent : ユーザーの要望
+RootAgent --> InspirationAgent : レストラン検索要求
+RootAgent --> PlanningAgent : 予約計画立案要求
+RootAgent --> BookingAgent : 予約・決済要求
+InspirationAgent --> RootAgent : レストラン候補情報
+PlanningAgent --> RootAgent : 予約プラン情報
+BookingAgent --> RootAgent : 予約・決済結果
+
+note bottom of InspirationAgent
+  外部地図APIと連携して
+  レストラン情報を取得
+end note
+
+note bottom of PlanningAgent
+  memorizeツールを使用して
+  予約情報を保存
+end note
+
+note bottom of BookingAgent
+  予約サービスAPIと連携して
+  実際の予約処理を実行
+end note
+
+note right of RootAgent
+  各エージェントの状態を
+  モニタリングし、必要に
+  応じて介入する
+end note
+@enduml

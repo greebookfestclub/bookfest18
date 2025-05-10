@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor white
+skinparam handwritten false
+
+actor "ユーザー" as User
+participant "root_agent" as Root
+participant "inspiration_agent" as Inspiration
+participant "planning_agent" as Planning
+participant "booking_agent" as Booking
+database "共有メモリ" as Memory
+
+User -> Root: "東京で良いイタリアンレストランを探しています"
+Root -> Inspiration: 要求を転送
+Inspiration --> Root: レストラン候補一覧を返却
+Root --> User: レストラン候補を提示
+
+User -> Root: "La Vitaが良さそうです"
+Root -> Memory: レストラン選択を記録
+Root -> Planning: 予約に関する要求を転送
+
+Planning -> Planning: コース・空席情報を取得
+Planning -> Memory: 予約情報を記録
+Planning --> Root: 予約可能なプランを返却
+Root --> User: プランを提示
+
+User -> Root: "予約を確定してください"
+Root -> Booking: 予約確定要求を転送
+Booking -> Memory: 予約内容を読込
+Booking -> Booking: 予約処理実行
+Booking -> Memory: 予約結果を記録
+Booking --> Root: 予約確定情報を返却
+Root --> User: 予約完了を通知
+
+@enduml

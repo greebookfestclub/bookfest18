@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="513px" preserveAspectRatio="none" style="width:1113px;height:513px;" version="1.1" viewBox="0 0 1113 513" width="1113px" zoomAndPan="magnify"><defs><filter height="300%" id="fte6vg2y7222m" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[10d7ccb69c3e4cbbf2baaa2e962d3872]
+cluster RootAgent--><rect fill="#D5E8D4" filter="url(#fte6vg2y7222m)" height="114" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="350" x="489.5" y="100"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="126" x="601.5" y="115.0059">ルートエージェント</text><!--MD5=[b06b7ad1e953f8d397d6a51e111aa189]
+cluster ExternalServices--><rect fill="#FFFFCC" filter="url(#fte6vg2y7222m)" height="98" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="476" x="214.5" y="404"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="410.5" y="419.0059">外部サービス</text><!--MD5=[5c691934b5633fdd3b98f008c74cebb5]
+entity State--><rect fill="#FFFFFF" filter="url(#fte6vg2y7222m)" height="46.7999" rx="10" ry="10" style="stroke: #6082B6; stroke-width: 1.5;" width="96" x="719.5" y="143"/><rect fill="#FFFFFF" height="10" style="stroke: #6082B6; stroke-width: 1.5;" width="15" x="795.5" y="148"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="793.5" y="150"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="793.5" y="154"/><text fill="#333333" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="734.5" y="176.0059">状態管理</text><!--MD5=[dfd4219ae26b16e6e974a23a737c25b1]
+entity Coordinator--><rect fill="#FFFFFF" filter="url(#fte6vg2y7222m)" height="46.7999" rx="10" ry="10" style="stroke: #6082B6; stroke-width: 1.5;" width="152" x="532.5" y="143"/><rect fill="#FFFFFF" height="10" style="stroke: #6082B6; stroke-width: 1.5;" width="15" x="664.5" y="148"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="662.5" y="150"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="662.5" y="154"/><text fill="#333333" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="547.5" y="176.0059">エージェント調整</text><!--MD5=[861cd813cbcfdc58c7203c14f06640b7]
+entity MapAPI--><rect fill="#FFFFFF" filter="url(#fte6vg2y7222m)" height="46.7999" rx="10" ry="10" style="stroke: #6082B6; stroke-width: 1.5;" width="90" x="425.5" y="439"/><rect fill="#FFFFFF" height="10" style="stroke: #6082B6; stroke-width: 1.5;" width="15" x="495.5" y="444"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="493.5" y="446"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="493.5" y="450"/><text fill="#333333" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="440.5" y="472.0059">地図API</text><!--MD5=[5b52a8c2c2780f2a33bc49eba93946bd]
+entity RestaurantAPI--><rect fill="#FFFFFF" filter="url(#fte6vg2y7222m)" height="46.7999" rx="10" ry="10" style="stroke: #6082B6; stroke-width: 1.5;" width="160" x="230.5" y="439"/><rect fill="#FFFFFF" height="10" style="stroke: #6082B6; stroke-width: 1.5;" width="15" x="370.5" y="444"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="368.5" y="446"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="368.5" y="450"/><text fill="#333333" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="120" x="245.5" y="472.0059">レストラン情報API</text><!--MD5=[9cf086ffd28d3eba2fbd0ae2badfe29d]
+entity BookingSystem--><rect fill="#FFFFFF" filter="url(#fte6vg2y7222m)" height="46.7999" rx="10" ry="10" style="stroke: #6082B6; stroke-width: 1.5;" width="124" x="550.5" y="439"/><rect fill="#FFFFFF" height="10" style="stroke: #6082B6; stroke-width: 1.5;" width="15" x="654.5" y="444"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="652.5" y="446"/><rect fill="#FFFFFF" height="2" style="stroke: #6082B6; stroke-width: 1.5;" width="4" x="652.5" y="450"/><text fill="#333333" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="565.5" y="472.0059">予約システム</text><!--MD5=[fee662a292a0353a69bd162820bae93b]
+entity User--><rect fill="#DDDDFF" filter="url(#fte6vg2y7222m)" height="36.7999" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="76" x="459.5" y="8"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="469.5" y="31.0059">ユーザー</text><!--MD5=[f8a847fbabcd27cb96d74a2719ecd4b0]
+entity InspirationAgent--><rect fill="#FFE6CC" filter="url(#fte6vg2y7222m)" height="53.5999" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="146" x="424.5" y="286"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="434.5" y="309.0059">インスピレーション</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="434.5" y="325.8059">エージェント</text><!--MD5=[5d3de228eb633d25aa63b8d41dd06f8b]
+entity PlanningAgent--><rect fill="#DAE8FC" filter="url(#fte6vg2y7222m)" height="53.5999" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="104" x="221.5" y="286"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="231.5" y="309.0059">プランニング</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="231.5" y="325.8059">エージェント</text><!--MD5=[264beab227b247e8b8d9e24d000c597b]
+entity BookingAgent--><rect fill="#F8CECC" filter="url(#fte6vg2y7222m)" height="53.5999" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.5;" width="104" x="695.5" y="286"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="28" x="705.5" y="309.0059">予約</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="705.5" y="325.8059">エージェント</text><path d="M863,154.5 L863,178.0999 A10,10 0 0 0 873,188.0999 L1084,188.0999 A10,10 0 0 0 1094,178.0999 L1094,154.5 L1084,144.5 L873,144.5 A10,10 0 0 0 863,154.5 " fill="#FFFFDD" filter="url(#fte6vg2y7222m)" style="stroke: #AAAAAA; stroke-width: 1.0;"/><path d="M1084,144.5 L1084,149.5 A5,5 0 0 0 1089,154.5 L1094,154.5 L1084,144.5 " fill="#FFFFDD" style="stroke: #AAAAAA; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="869" y="162.5059">ユーザーとの対話を管理し</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="210" x="869" y="179.3059">適切なエージェントに処理を委譲</text><path d="M710,450.5 L710,474.0999 A10,10 0 0 0 720,484.0999 L875,484.0999 A10,10 0 0 0 885,474.0999 L885,450.5 L875,440.5 L720,440.5 A10,10 0 0 0 710,450.5 " fill="#FFFFDD" filter="url(#fte6vg2y7222m)" style="stroke: #AAAAAA; stroke-width: 1.0;"/><path d="M875,440.5 L875,445.5 A5,5 0 0 0 880,450.5 L885,450.5 L875,440.5 " fill="#FFFFDD" style="stroke: #AAAAAA; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="154" x="716" y="458.5059">ユーザーの好みに応じた</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="716" y="475.3059">レストラン提案</text><path d="M6,450.5 L6,474.0999 A10,10 0 0 0 16,484.0999 L185,484.0999 A10,10 0 0 0 195,474.0999 L195,450.5 L185,440.5 L129.13,440.5 L242.97,340.03 L121.13,440.5 L16,440.5 A10,10 0 0 0 6,450.5 " fill="#FFFFDD" filter="url(#fte6vg2y7222m)" style="stroke: #AAAAAA; stroke-width: 1.0;"/><path d="M185,440.5 L185,445.5 A5,5 0 0 0 190,450.5 L195,450.5 L185,440.5 " fill="#FFFFDD" style="stroke: #AAAAAA; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="168" x="12" y="458.5059">日時・人数・コース選択の</text><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="12" y="475.3059">サポート</text><path d="M920,459 L920,465.7999 A10,10 0 0 0 930,475.7999 L1057,475.7999 A10,10 0 0 0 1067,465.7999 L1067,459 L1057,449 L930,449 A10,10 0 0 0 920,459 " fill="#FFFFDD" filter="url(#fte6vg2y7222m)" style="stroke: #AAAAAA; stroke-width: 1.0;"/><path d="M1057,449 L1057,454 A5,5 0 0 0 1062,459 L1067,459 L1057,449 " fill="#FFFFDD" style="stroke: #AAAAAA; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="926" y="467.0059">予約確定と決済処理</text><!--MD5=[c1597d96970b818be2ca56eedaa56ccc]
+link User to RootAgent--><path d="M497.5,50.7 C497.5,60.3675 497.5,72.2225 497.5,84.6045 C497.5,87.7 497.5,90.8285 497.5,93.9639 C497.5,95.5316 497.5,97.1011 497.5,98.6691 C497.5,99.0611 497.5,99.453 497.5,99.8447 " fill="none" id="User-RootAgent" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="497.5,99.8447,501.5,90.8447,497.5,94.8447,493.5,90.8447,497.5,99.8447" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="497.5,45.26,493.5,54.26,497.5,50.26,501.5,54.26,497.5,45.26" style="stroke: #6082B6; stroke-width: 1.0;"/><!--MD5=[6541c0c29ea777a907d2f3508424dcb7]
+link RootAgent to InspirationAgent--><path d="M497.5,214.0387 C497.5,215.4927 497.5,216.9627 497.5,218.4458 C497.5,221.4121 497.5,224.431 497.5,227.4799 C497.5,233.5777 497.5,239.7958 497.5,245.9534 C497.5,258.2688 497.5,270.3425 497.5,280.73 " fill="none" id="RootAgent-InspirationAgent" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="497.5,285.9,501.5,276.9,497.5,280.9,493.5,276.9,497.5,285.9" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="497.5,214.0387,493.5,223.0387,497.5,219.0387,501.5,223.0387,497.5,214.0387" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="498.5" y="252.0059">レストラン検索要求</text><!--MD5=[61274112a8d326781de1a58777e1cddb]
+link RootAgent to PlanningAgent--><path d="M489.4896,172.6656 C488.9987,172.9823 488.4873,173.3123 487.9559,173.6551 C486.8932,174.3407 485.7508,175.0778 484.5333,175.8633 C482.0982,177.4343 479.3628,179.1991 476.3639,181.1338 C464.3684,188.8725 448.1581,199.33 430.0988,210.98 C393.98,234.28 350.465,262.35 318.48,282.98 " fill="none" id="RootAgent-PlanningAgent" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="313.96,285.9,323.69,284.3745,318.1594,283.1861,319.3478,277.6555,313.96,285.9" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="489.4896,172.6656,479.7585,174.1837,485.2882,175.3763,484.0956,180.906,489.4896,172.6656" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="386.5" y="252.0059">予約計画立案</text><!--MD5=[9e2a97456fdfcc821f6e79f1d065f5c0]
+link RootAgent to BookingAgent--><path d="M504.6214,214.1413 C504.6673,214.2415 504.7135,214.3415 504.7599,214.4414 C504.9456,214.8409 505.1358,215.238 505.3306,215.6325 C505.7202,216.4216 506.1282,217.2003 506.5554,217.9666 C507.4097,219.4992 508.3409,220.9823 509.3557,222.4002 C511.3852,225.2361 513.7488,227.8113 516.5,230 C536.89,246.22 608.78,229.75 633.5,238 C662.46,247.66 691.26,266.46 712.67,282.69 " fill="none" id="RootAgent-BookingAgent" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="716.85,285.9,712.1387,277.2511,712.881,282.859,707.2731,283.6014,716.85,285.9" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="504.6214,214.1413,504.732,223.9896,506.7033,218.6873,512.0056,220.6586,504.6214,214.1413" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="671.5" y="252.0059">予約確定・決済</text><!--MD5=[b3fa0e48a75d048b33f5d00c6a151e54]
+link InspirationAgent to MapAPI--><path d="M492.74,340.03 C487.94,366.24 480.56,406.53 475.64,433.44 " fill="none" id="InspirationAgent-&gt;MapAPI" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="474.69,438.63,480.2417,430.495,475.5882,433.7113,472.3718,429.0579,474.69,438.63" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="487.5" y="384.0059">場所検索</text><!--MD5=[94d1aa9b26fc24a30b0051be76dbb193]
+link InspirationAgent to RestaurantAPI--><path d="M437.3,340.1 C421.01,348.5 403.92,358.61 389.5,370 C366.07,388.5 344.29,414.69 329.56,434.31 " fill="none" id="InspirationAgent-&gt;RestaurantAPI" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="326.34,438.65,334.9207,433.8157,329.324,434.638,328.5016,429.0413,326.34,438.65" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="84" x="390.5" y="384.0059">メニュー取得</text><!--MD5=[c22b98568e127890ca6688438f1e37d1]
+link PlanningAgent to RestaurantAPI--><path d="M268.83,340.06 C267.16,354.42 266.54,372.42 270.5,388 C274.68,404.44 283.38,421.18 291.59,434.52 " fill="none" id="PlanningAgent-&gt;RestaurantAPI" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="294.35,438.91,292.9484,429.1614,291.6897,434.6764,286.1747,433.4178,294.35,438.91" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="271.5" y="384.0059">空席確認</text><!--MD5=[399f2571c49ff12f1ef8bb6cf9834eb9]
+link BookingAgent to BookingSystem--><path d="M723.68,340.03 C699.29,366.67 661.58,407.88 636.96,434.77 " fill="none" id="BookingAgent-&gt;BookingSystem" style="stroke: #6082B6; stroke-width: 1.0;"/><polygon fill="#6082B6" points="633.43,438.63,642.4567,434.6906,636.8054,434.9413,636.5547,429.29,633.43,438.63" style="stroke: #6082B6; stroke-width: 1.0;"/><text fill="#000000" font-family="Hiragino Sans" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="98" x="696.5" y="384.0059">予約リクエスト</text><!--MD5=[68b3a796e5c8665d8d7019e02e87237f]
+link RootAgent to GMN21--><path d="M504.909,99.9012 C505.0289,99.5632 505.1507,99.2261 505.2742,98.8898 C505.7682,97.5446 506.2908,96.2129 506.8434,94.8986 C507.9487,92.2698 509.1742,89.7104 510.5325,87.2509 C515.9656,77.4131 523.5225,69.175 534,64.5 C590.82,39.15 754.16,47.45 814,64.5 C868.46,80.01 922.49,119.29 953.07,144.33 " fill="none" id="RootAgent-GMN21" style="stroke: #6082B6; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[1e24e85846527e29853735f61245f99c]
+link InspirationAgent to GMN24--><path d="M565.61,340.07 C603.08,355.13 650.04,375.17 690.5,396 C716.64,409.46 744.97,426.94 765.9,440.46 " fill="none" id="InspirationAgent-GMN24" style="stroke: #6082B6; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[3679392cd4bc1429e5cd2a5ffbd47b40]
+link BookingAgent to GMN30--><path d="M799.81,339.41 C830.33,354.8 869.26,375.38 902.5,396 C929.79,412.93 959.71,435.25 977.53,448.97 " fill="none" id="BookingAgent-GMN30" style="stroke: #6082B6; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[9f728a4d7bd95185df7ece3069e288f8]
+@startuml
+
+skinparam backgroundColor transparent
+skinparam handwritten false
+skinparam defaultFontName "Hiragino Sans"
+skinparam defaultFontSize 14
+skinparam roundCorner 20
+skinparam componentStyle uml2
+
+skinparam component {
+  BorderColor #6082B6
+  BackgroundColor #FFFFFF
+  ArrowColor #6082B6
+  FontColor #333333
+}
+
+skinparam interface {
+  BorderColor #6082B6
+  BackgroundColor #FFFFFF
+}
+
+skinparam note {
+  BorderColor #AAAAAA
+  BackgroundColor #FFFFDD
+}
+
+rectangle "ユーザー" as User #DDDDFF
+
+rectangle "ルートエージェント" as RootAgent #D5E8D4 {
+  component "状態管理" as State
+  component "エージェント調整" as Coordinator
+}
+
+rectangle "インスピレーション\nエージェント" as InspirationAgent #FFE6CC
+rectangle "プランニング\nエージェント" as PlanningAgent #DAE8FC
+rectangle "予約\nエージェント" as BookingAgent #F8CECC
+
+rectangle "外部サービス" as ExternalServices #FFFFCC {
+  component "地図API" as MapAPI
+  component "レストラン情報API" as RestaurantAPI
+  component "予約システム" as BookingSystem
+}
+
+User <- -> RootAgent
+
+RootAgent <- -> InspirationAgent : レストラン検索要求
+RootAgent <- -> PlanningAgent : 予約計画立案
+RootAgent <- -> BookingAgent : 予約確定・決済
+
+InspirationAgent - -> MapAPI : 場所検索
+InspirationAgent - -> RestaurantAPI : メニュー取得
+
+PlanningAgent - -> RestaurantAPI : 空席確認
+BookingAgent - -> BookingSystem : 予約リクエスト
+
+note right of RootAgent
+  ユーザーとの対話を管理し
+  適切なエージェントに処理を委譲
+end note
+
+note bottom of InspirationAgent
+  ユーザーの好みに応じた
+  レストラン提案
+end note
+
+note bottom of PlanningAgent
+  日時・人数・コース選択の
+  サポート
+end note
+
+note bottom of BookingAgent
+  予約確定と決済処理
+end note
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 17.0.11+9-Debian-1deb12u1
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
