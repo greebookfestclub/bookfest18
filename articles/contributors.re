@@ -2,6 +2,7 @@
 
 ==== 樋口雅拓 / @<href>{https://twitter.com/mahiguch1,@mahiguch1} (@<chap>{higuchi})
 グリーエックス株式会社で、ソフトウェア開発に従事。
+広告システム開発、GREE Platformの立ち上げ、不正利用対策、チャットアプリ開発、メディア開発を経て2025年2月より現職。
 好きなサウナ施設は、鶯谷のサウナセンター。
 
 ==== 遠藤辰弥 / @<href>{https://twitter.com/tattyamm,@tattyamm} (@<chap>{endo})

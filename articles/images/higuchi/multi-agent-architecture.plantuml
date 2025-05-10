@@ -1,0 +1,75 @@
+@startuml
+!define RECTANGLE class
+
+skinparam backgroundColor transparent
+skinparam handwritten false
+skinparam defaultFontName "Hiragino Sans"
+skinparam defaultFontSize 14
+skinparam roundCorner 20
+skinparam componentStyle uml2
+
+skinparam component {
+  BorderColor #6082B6
+  BackgroundColor #FFFFFF
+  ArrowColor #6082B6
+  FontColor #333333
+}
+
+skinparam interface {
+  BorderColor #6082B6
+  BackgroundColor #FFFFFF
+}
+
+skinparam note {
+  BorderColor #AAAAAA
+  BackgroundColor #FFFFDD
+}
+
+rectangle "ユーザー" as User #DDDDFF
+
+rectangle "ルートエージェント" as RootAgent #D5E8D4 {
+  component "状態管理" as State
+  component "エージェント調整" as Coordinator
+}
+
+rectangle "インスピレーション\nエージェント" as InspirationAgent #FFE6CC
+rectangle "プランニング\nエージェント" as PlanningAgent #DAE8FC
+rectangle "予約\nエージェント" as BookingAgent #F8CECC
+
+rectangle "外部サービス" as ExternalServices #FFFFCC {
+  component "地図API" as MapAPI
+  component "レストラン情報API" as RestaurantAPI
+  component "予約システム" as BookingSystem
+}
+
+User <--> RootAgent
+
+RootAgent <--> InspirationAgent : レストラン検索要求
+RootAgent <--> PlanningAgent : 予約計画立案
+RootAgent <--> BookingAgent : 予約確定・決済
+
+InspirationAgent --> MapAPI : 場所検索
+InspirationAgent --> RestaurantAPI : メニュー取得
+
+PlanningAgent --> RestaurantAPI : 空席確認
+BookingAgent --> BookingSystem : 予約リクエスト
+
+note right of RootAgent
+  ユーザーとの対話を管理し
+  適切なエージェントに処理を委譲
+end note
+
+note bottom of InspirationAgent
+  ユーザーの好みに応じた
+  レストラン提案
+end note
+
+note bottom of PlanningAgent
+  日時・人数・コース選択の
+  サポート
+end note
+
+note bottom of BookingAgent
+  予約確定と決済処理
+end note
+@enduml

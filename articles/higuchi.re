@@ -6,11 +6,14 @@
 
 == はじめに
 
-近年、AI技術の進化により、特定の目的を持ったAI Agentの開発が活発になっています。単一のAIモデルだけでなく、複数のAIが協調して動作するマルチエージェントシステムも注目を集めています。本章では、Google ADK（Agent Development Kit）を使用して開発したレストランコンシェルジュシステムについて、その設計思想から実装方法までを詳しく解説します。
+近年、AI技術の進化により、特定の目的を持ったAI Agentの開発が活発になっています。単一のAIモデルだけでなく、複数のAIが協調して動作するマルチエージェントシステムも注目を集めています。本章では、Google ADK（Agent Development Kit）を使用して開発したレストランコンシェルジュシステムについて、その設計から実装方法までを詳しく解説します。
 
 == マルチエージェントアーキテクチャとは
 
 マルチエージェントアーキテクチャとは、複数の特化型AIエージェントが連携して、より複雑なタスクを達成するシステム設計手法です。各エージェントはそれぞれ特定の役割に専念し、必要に応じて他のエージェントに処理を委譲します。
+
+//image[multi-agent-architecture][マルチエージェントアーキテクチャの概念図]{
+//}
 
 このアプローチには以下のような利点があります：
 
@@ -22,6 +25,7 @@
 == レストランコンシェルジュの概要
 
 今回開発したレストランコンシェルジュは、ユーザーがレストランを選び、メニューを確認し、予約するまでの一連のプロセスをサポートするAIシステムです。
+Agent Development Kit ドキュメント(@<bib>{google-adk}) と Agent Development Kit (ADK) Samples(@<bib>{multi-agents}) のサンプルを参考にしながら、以下のような機能を持つシステムを構築しました。
 
 === システムの主な機能
 
@@ -41,6 +45,9 @@
 
 さらに、これらの主要エージェントの下に複数のサブエージェントが存在し、より専門的なタスクを担当しています。
 
+//image[agent-relationships][エージェント間の関係図]{
+//}
+
 == Google ADKの概要
 
 Google Agent Development Kit (ADK)は、AIエージェントの開発を効率化するためのフレームワークです。ADKの主な特徴は以下の通りです：
@@ -58,7 +65,7 @@ ADKを使用することで、複雑なマルチエージェントシステム�
 
 レストランコンシェルジュの基本的なプロジェクト構造は以下のようになっています：
 
-//list[project-structure][プロジェクト構造]{
+//list[project-structure][プロジェクト構造][text]{
 restaurant-concierge/
   ├── restaurant_concierge/
   │   ├── __init__.py
@@ -78,8 +85,11 @@ restaurant-concierge/
 === ルートエージェントの実装
 
 ルートエージェントは、システムのエントリーポイントとなるコンポーネントです。ユーザーからの入力を最初に受け取り、適切なサブエージェントに処理を委譲します。
+サンプルではmodelとして、gemini-2.0-flash-001が指定されていました。
+このmodelは日本語に対応していないため、gemini-2.5-flash-preview-04-17を指定しています。
+エージェントの定義では、サブエージェントの一覧と各サブエージェントの役割や使用するプロンプトを指定します。
 
-//list[root-agent][ルートエージェントの実装]{
+//listnum[root-agent][ルートエージェントの実装][Python]{
 from google.adk.agents import Agent
 
 from restaurant_concierge import prompt
@@ -96,7 +106,7 @@ root_agent = Agent(
     name="root_agent",
     description="複数のサブエージェントのサービスを利用するレストランコンシェルジュ",
     instruction=prompt.ROOT_AGENT_INSTR,
-    sub_agents=[
+    sub_agents=[            # サブエージェントのリスト
         inspiration_agent,
         planning_agent,
         booking_agent,
@@ -105,9 +115,10 @@ root_agent = Agent(
 )
 //}
 
-ルートエージェントの主なプロンプトは次のようになっています：
+ルートエージェントの主なプロンプトは次のようになっています。
+特筆すべき点として、サブエージェントの呼び出しをプロンプトで定義していることです。
 
-//list[root-agent-prompt][ルートエージェントのプロンプト]{
+//listnum[root-agent-prompt][ルートエージェントのプロンプト][text]{
 ROOT_AGENT_INSTR = """
 - あなたは専属のレストランコンシェルジュエージェントです。
 - ユーザーが行きたいレストランを見つけ、メニュー選びや空席確認、予約手続きまでを手助けします。
@@ -125,11 +136,16 @@ ROOT_AGENT_INSTR = """
 === インスピレーションエージェントの実装
 
 インスピレーションエージェントは、ユーザーのレストラン選びを支援するコンポーネントです。場所や料理の種類などの要望に基づいて、最適なレストランを提案します。
+このエージェントは、ツールとしてエージェントを指定しています。
+しかし実際の運用では、レストラン予約サービスのAPIを使用して、リアルタイムな情報を取得する必要があります。
 
-//list[inspiration-agent][インスピレーションエージェントの実装]{
+//listnum[inspiration-agent][インスピレーションエージェントの実装][Python]{
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
-from restaurant_concierge.shared_libraries.types import DestinationIdeas, POISuggestions
+from restaurant_concierge.shared_libraries.types import (
+    DestinationIdeas, 
+    POISuggestions
+)
 from restaurant_concierge.sub_agents.inspiration import prompt
 from restaurant_concierge.tools.places import map_tool
 
@@ -139,10 +155,10 @@ place_agent = Agent(
     instruction=prompt.PLACE_AGENT_INSTR,
     description="ユーザーの好みに応じて、いくつかのレストラン候補を提案する"
                 "レストランコンシェルジュエージェントです。",
-    disallow_transfer_to_parent=True,
-    disallow_transfer_to_peers=True,
-    output_schema=DestinationIdeas,
-    output_key="place",
+    disallow_transfer_to_parent=True,   # 親エージェントへの処理委譲を禁止
+    disallow_transfer_to_peers=True,    # 他のエージェントへの処理委譲を禁止
+    output_schema=DestinationIdeas,     # 出力の構造を定義するスキーマ
+    output_key="place",                 # 出力を保存する際のキー
     generate_content_config=json_response_config,
 )
 
@@ -172,11 +188,17 @@ inspiration_agent = Agent(
 )
 //}
 
+//note[インスピレーションエージェントの役割]{
+インスピレーションエージェントは、ユーザーの漠然とした要望（「美味しいイタリアン料理が食べたい」など）を具体的な選択肢に変換する重要な役割を担っています。レストランの位置情報や評価情報を取得し、ユーザーの嗜好に合わせた最適な提案を行います。
+//}
+
 === プランニングエージェントの実装
 
 プランニングエージェントは、レストランが決まった後の具体的な予約計画を立てるコンポーネントです。コース選択、日時指定、人数確認などを行います。
+このエージェントも、ツールとしてエージェントを指定しています。
+実際の運用では、レストラン予約サービスへの置き換えを想定しています。
 
-//list[planning-agent][プランニングエージェントの実装]{
+//listnum[planning-agent][プランニングエージェントの実装][Python]{
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 from google.genai.types import GenerateContentConfig
@@ -231,8 +253,10 @@ planning_agent = Agent(
 === 予約エージェントの実装
 
 予約エージェントは、具体的な予約の確定と支払い処理を担当します。ユーザーが選んだレストラン、日時、コースなどの情報を基に、実際の予約処理を行います。
+このエージェントも、ツールとしてエージェントを指定しています。
+実際の運用では、レストラン予約サービスへの置き換えを想定しています。
 
-//list[booking-agent][予約エージェントの実装]{
+//listnum[booking-agent][予約エージェントの実装][Python]{
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 from google.genai.types import GenerateContentConfig
@@ -273,10 +297,13 @@ booking_agent = Agent(
 )
 //}
 
-=== データ型の定義（続き）
+=== データ型の定義
 
-//list[data-types][データ型の定義]{
+プロジェクトで使用される主要なデータ型を以下に示します。これらはPydanticを使用して定義されており、エージェント間でのデータの整合性を保証します。
+
+//listnum[data-types][データ型の定義][Python]{
 from pydantic import BaseModel, Field
+
 class Seat(BaseModel):
     """予約可能な席の情報。"""
     is_available: bool = Field(
@@ -304,11 +331,14 @@ class CourseSelection(BaseModel):
 
 マルチエージェントシステムにおいて重要なのは、エージェント間のスムーズな通信です。Google ADKでは、エージェント間の通信を簡単に実装できるよう、いくつかの機能が提供されています。
 
+//image[agent-communication][エージェント間通信フロー]{
+//}
+
 === エージェント間データの受け渡し
 
 レストランコンシェルジュでは、各エージェントが生成した情報を他のエージェントに渡すために、以下のような手法を採用しています。
 
-//list[agent-communication][エージェント間通信の実装]{
+//listnum[agent-communication][エージェント間通信の実装][Python]{
 def memorize(key: str, value: str) -> str:
     """メモリに情報を記録するツール。
 
@@ -342,7 +372,7 @@ def _load_precreated_itinerary(agent_state: AgentState) -> Optional[AgentState]:
     return new_state
 //}
 
-この実装により、あるエージェントが収集した情報（選択されたレストラン、予約日時など）を、他のエージェントが利用できるようになります。
+この実装により、あるエージェントが収集した情報（選択されたレストラン、予約日時など）を、他のエージェントが利用できるようになります。API呼び出しの結果やユーザーの選択内容など、重要な情報が共有メモリに保存され、システム全体で活用されます。
 
 == 外部ツール連携
 
@@ -350,10 +380,12 @@ def _load_precreated_itinerary(agent_state: AgentState) -> Optional[AgentState]:
 
 === 地図ツールの実装
 
-レストランの場所を検索するための地図ツールは以下のように実装しています。
+レストランの場所を検索するための地図ツールは以下のように実装しています。実際の運用では、Google Maps APIなどの実サービスと連携することになります。@<fn>{api_integration}</fn>
 
-//list[map-tool][地図ツールの実装]{
+//listnum[map-tool][地図ツールの実装][Python]{
 from google.adk.tools.function_tool import FunctionTool
+from typing import Optional
+import json
 
 def search_places(query: str, location: Optional[str] = None) -> str:
     """指定されたクエリと位置情報を使って場所を検索します。
@@ -392,13 +424,15 @@ map_tool = FunctionTool(
 )
 //}
 
+//footnote[api_integration][実際の本番環境では、レストラン予約サービスのAPIと連携することで、より正確でリアルタイムな情報を取得できます。]
+
 == システムの実行とユーザーインタラクション
 
 === コンソールアプリケーションの実装
 
-レストランコンシェルジュをコンソールアプリケーションとして実行するためのコードを示します。
+レストランコンシェルジュをコンソールアプリケーションとして実行するためのコードを示します。Google ADKのConsoleApplicationクラスを使用することで、簡単にインタラクティブなインターフェースを構築できます。
 
-//list[console-app][コンソールアプリケーションの実装]{
+//listnum[console-app][コンソールアプリケーションの実装][Python]{
 from google.adk.console_application import ConsoleApplication
 from restaurant_concierge.agent import root_agent
 
@@ -412,9 +446,9 @@ if __name__ == "__main__":
 
 === ユーザーインタラクションの例
 
-このシステムを使った実際のユーザーとのやり取りの例を示します。
+このシステムを使った実際のユーザーとのやり取りの例を示します。以下は典型的な対話の流れです。
 
-//list[interaction-example][ユーザーインタラクションの例]{
+//list[interaction-example][ユーザーインタラクションの例][text]{
 ユーザー: 東京で良いイタリアンレストランを探しています。
 システム: 東京のイタリアンレストランをお探しですね。どのあたりをご希望ですか？
 
@@ -448,13 +482,16 @@ if __name__ == "__main__":
 ご予約ありがとうございました！
 //}
 
+//image[user-flow][ユーザー対話フロー]{
+//}
+
 == デプロイメントと運用
 
 === コンテナ化
 
 レストランコンシェルジュをDocker環境でデプロイするためのDockerfileを以下に示します。
 
-//list[dockerfile][Dockerfile]{
+//listnum[dockerfile][Dockerfile][dockerfile]{
 FROM python:3.9-slim
 
 WORKDIR /app
@@ -475,6 +512,7 @@ CMD ["python", "-m", "restaurant_concierge.main"]
  * 平均対話ステップ数：予約完了までの平均ターン数
  * エージェント切り替え回数：適切なエージェントに処理が委譲された回数
  * エラー発生率：システムがエラーを返した割合
+ * ユーザー満足度：予約後のフィードバック評価
 
 == 課題と今後の展望
 
@@ -482,10 +520,12 @@ CMD ["python", "-m", "restaurant_concierge.main"]
 
 === 現状の課題
 
- * ハルシネーション：実在しないレストラン情報を生成する場合がある
+ * ハルシネーション：実在しないレストラン情報を生成する場合がある@<fn>{hallucination_note}
  * コンテキスト維持：長い対話の中でユーザーの意図を正確に把握し続けることが難しい
  * エージェント間の協調：異なるエージェント間で整合性のとれた応答を維持すること
  * 外部APIとの連携：リアルタイムのレストラン情報や予約状況を取得する実装
+
+//footnote[hallucination_note][ハルシネーションとは、AIが実在しない情報を事実のように生成してしまう現象です。この問題は外部APIと連携し、実在するデータのみを使用することで軽減できます。]
 
 === 今後の展望
 
@@ -501,10 +541,3 @@ Google ADKを活用したマルチエージェント型レストランコンシ�
 マルチエージェントアーキテクチャは、複雑なタスクを分割し、各エージェントが専門領域に特化することで、システム全体の機能と柔軟性を向上させる有効な手法です。Google ADKのようなフレームワークを利用することで、このような複雑なシステムも効率的に開発できることが確認できました。
 
 今後は、実際のビジネス利用に向けた拡張や、より高度な自律性を持つエージェントの開発に取り組んでいきたいと考えています。
-
-== 参考文献
-
- * Google Agent Development Kit Documentation
- * "Building Multi-Agent Systems with LLMs" (Google Research, 2024)
- * "Generative Agents: Interactive Simulacra of Human Behavior" (Park et al., 2023)
- * "ReAct: Synergizing Reasoning and Acting in Language Models" (Yao et al., 2023)

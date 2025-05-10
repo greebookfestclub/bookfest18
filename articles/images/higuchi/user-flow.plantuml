@@ -1,0 +1,46 @@
+@startuml
+skinparam backgroundColor white
+
+start
+:ユーザーが初期要求を入力;
+note right: 東京で良いイタリアンレストランを探しています
+
+:root_agentが要求を分析;
+
+:inspiration_agentに処理を委譲;
+note right: レストラン検索のフェーズ
+
+:エリアや料理タイプに基づいてレストラン候補を提案;
+
+:ユーザーがレストランを選択;
+note right: La Vitaが良さそうです
+
+:planning_agentに処理を委譲;
+note right: 予約計画のフェーズ
+
+:日時・人数の確認;
+note right: 明日の夜19時頃、2名で
+
+:空席状況の確認;
+
+:コース選択の案内;
+
+:ユーザーがコースを選択;
+note right: トラットリアコースでお願いします
+
+:booking_agentに処理を委譲;
+note right: 予約確定のフェーズ
+
+:予約の作成・確認;
+
+:支払い方法の選択;
+
+:ユーザーが支払い方法を選択;
+note right: クレジットカードで支払います
+
+:決済処理の実行;
+
+:予約完了の通知;
+
+stop
+@enduml
