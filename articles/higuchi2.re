@@ -119,9 +119,7 @@ VS Codeのコマンドパレットから直接「Chat: Agent Mode」を選択し
 
 接続が成功すると、以下の現象が確認できます：
 
- * VS Codeの右下ステータスバーに「Chat: Agent Mode」というステータスが表示されます
- * ターミナルにFigma MCP Serverの起動ログが表示されます
- * ChatビューでGitHub Copilotが「Figma MCP Serverに接続しました」と通知するかもしれません
+ * setting.jsonの対象行にRunningと表示される
 
 接続に問題がある場合は、設定を確認し、以下を試してください：
 
