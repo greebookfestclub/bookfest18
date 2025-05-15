@@ -108,6 +108,8 @@ yispはhelmのようにYAMLを文字列として扱うのではなく、デー�
 
 == より実用的な例
 
+=== テンプレート
+
 もうちょっと実用的な例として、kubernetesマニフェストのようなものを出力させてみましょう。
 たとえばテンプレートとして使うことができて、このようなYAMLをあらかじめ作っておきます
 
@@ -166,7 +168,9 @@ spec:
 
 こうしてyispでもテンプレートのような利用ができましたね。
 
-さらに、この出力にパッチを当ててみましょう。metadata.nameのみを変更してみます。
+=== パッチを当てる
+
+続いて、出力結果にパッチを当ててみましょう。metadata.nameのみを変更してみます。
 
 //list[template_result][patch.yaml][yaml]{
 !yisp
@@ -197,6 +201,35 @@ spec:
 //}
 
 これで、metadata.nameだけを変更することができました。
+
+=== configmapの生成
+
+もう一つ実用的な例として、KubernetesのConfigMapを生成する例をみてみましょう。
+
+//list[generate_config][generate-configmap.yaml][yaml]{
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data: !yisp
+  - from-entries
+  - - map
+    - - lambda
+      - [file]
+      - !quote
+        - *file.name
+        - *file.body
+    - - read-files
+      - ./cm-files/*
+//}
+
+このYAMLでは以下のような処理を行っています。
+
+* read-files 関数で cm-files/ 以下のファイルを全て読み込む
+* map関数で各ファイルをnameとbodyのペアに変換
+* from-entries関数でkey-valueのリストをYAMLのマッピングに変換し、dataに代入
+
+この関数は、kustomizeのconfigmap-generatorと同じようなデザインになったいます。このように、yispの表現力を活用することでhelmの自由な記述と、kustomizeのようなデータの変換の両方をこなすことができます。
 
 == yispでもっと遊んでみる
 
