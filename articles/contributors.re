@@ -36,8 +36,7 @@
 ==== 佐島豊 / @<href>{https://x.com/yutaka_sashima,@yutaka_sashima} (@<chap>{sashima})
 主に技術広報などをやってます。
 
-==== Naoki Saruta (@<chap>{saruta})
-
+==== kunado (@<chap>{kunado})
 2024年グリーグループ入社。REALITY 株式会社にてバーチャルアバター配信アプリのサーバーサイドの開発をしています。
 新政酒造や寒菊銘醸の作るお酒が好きです。
 
