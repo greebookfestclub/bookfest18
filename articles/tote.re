@@ -129,6 +129,7 @@ yispはhelmのようにYAMLを文字列として扱うのではなく、デー�
 //}
 
 いきなり情報量が多いですが、ここでやっていることは
+
   * lambda演算子を使って、無名関数を作っている
   * YAMLのアンカー記法をつかって、この関数に@<code>{&mkpod}として名前をつける
   * この関数としてやりたいことは変数を埋め込んだデータを返すだけなので、一応@<code>{!quote}タグを使って不用意にyispとして評価されないようにする
@@ -225,9 +226,9 @@ data: !yisp
 
 このYAMLでは以下のような処理を行っています。
 
-* read-files 関数で cm-files/ 以下のファイルを全て読み込む
-* map関数で各ファイルをnameとbodyのペアに変換
-* from-entries関数でkey-valueのリストをYAMLのマッピングに変換し、dataに代入
+ * read-files 関数で cm-files/ 以下のファイルを全て読み込む
+ * map関数で各ファイルをnameとbodyのペアに変換
+ * from-entries関数でkey-valueのリストをYAMLのマッピングに変換し、dataに代入
 
 この関数は、kustomizeのconfigmap-generatorと同じようなデザインになったいます。このように、yispの表現力を活用することでhelmの自由な記述と、kustomizeのようなデータの変換の両方をこなすことができます。
 

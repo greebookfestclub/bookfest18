@@ -43,7 +43,7 @@ cd figma-next-app
 
 # Tailwind CSSのセットアップ (Next.js 13以降は標準で含まれています)
 # Shadcn UIをセットアップ
-npx shadcn-ui@latest init
+npx shadcn@latest init
 //}
 
 インタラクティブセットアップで質問されたら以下のように回答してください。
@@ -57,7 +57,7 @@ npx shadcn-ui@latest init
 これでShadcn UIコンポーネントをインストールできるようになりました。必要に応じて、以下のようにコンポーネントを追加できます。
 
 //cmd{
-npx shadcn-ui@latest add button card dialog
+npx shadcn@latest add button card dialog
 //}
 
 === VS CodeでAgent Modeを有効化してMCP Server接続設定
